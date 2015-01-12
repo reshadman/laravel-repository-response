@@ -25,6 +25,7 @@ But this also breaks another rule. ** Just like as concrete implementations of r
 A user repository workflow will be as below :
  * UserEntityContract.php
  * EloquentUserEntity.php : this class should extends ```Bigsinoos\RepositoryResponse\BaseEloquentEntity``` class, to get the class friendship functionality.
+ * User.php
  * UserRepositoryContract.php
  * EloquentUserRepository.php
 
@@ -56,12 +57,24 @@ class EloquentUserEntity extends \Bigsinoos\RepositoryResponse\BaseEloquentEntit
          */
         protected function getNewModel($attributes = [])
         {
-            return new Role($attributes);
+            return new \User($attributes);
         }
     
 }
 ```
-UserRepositoyContract.php
+User.php
+
+```php
+<?php
+
+class User extends \Eloquent {
+    
+    protected $table = 'users';
+    
+}
+```
+
+UserRepositoryContract.php
 ```php
 interface UserRepositoryContract {
     /**
@@ -110,8 +123,9 @@ class EloquentUserRepository implements UserRepositoryContract {
     {
         $collection = $this->userEntity
             ->getModel()
-            ->newInstance()->
-            orderBy($sortBy, (bool) $decreasing)->take((int) $howMuch)->get();
+            ->newInstance()
+            ->orderBy($sortBy, (bool) $decreasing)
+            ->take((int) $howMuch)->get();
         
         // Don't do this for large data sets.
         return $this->buildEntityCollection($collection);
@@ -124,7 +138,7 @@ class EloquentUserRepository implements UserRepositoryContract {
         
         $collection->each(function($item)){
         
-                $entity = $this->userEntity->newInsance();
+                $entity = $this->userEntity->newInstance();
                 
                 $entity->setModel($item);
                 
