@@ -1,6 +1,6 @@
 {
     "name": "bigsinoos/laravel-repository-response",
-    "description": "Solution to PHP respository class method responses, Helps to implement true Repository pattern.",
+    "description": "Solution to PHP repository class method responses, Helps to implement true Repository pattern.",
     "license": "GPL",
     "authors": [
         {
