@@ -19,8 +19,10 @@
         "phpunit/phpunit": "4.4.*",
         "mockery/mockery" : "*"
     },
-    "psr-4": {
-        "Bigsinoos\\RepositoryResponse\\": "src/"
+    "autoload" : {
+        "psr-4": {
+            "Bigsinoos\\RepositoryResponse\\": "src/"
+        }
     },
     "minimum-stability": "dev"
 }
