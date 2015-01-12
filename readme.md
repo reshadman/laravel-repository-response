@@ -8,7 +8,7 @@ The real pattern interacts with Entities instead of our Eloquent models. so with
 
 ### Friend Classes and debug_back_trace function
 
-A friend classes in the scope of object oriented design, can break their encapsulation layer, for example they can call ```protected``` method of each other. PHP does not support friend classes at all.
+Friend classes in the scope of object oriented design, can break each other's encapsulation layer, for example they can call ```protected``` method of each other. PHP does not support friend classes at all.
 
 When we return Eloquent models from our repository methods, we allow external access to our database layer, which should be done through our repository contracts, this simply breaks the pattern, to solve this problem instead of returning Eloquent models from repository, we simply create a new Entity for the Model, and Wrap it arround the model, So everytime a method or propery is called from the entity the entity behvaes like below :
   * Check that it is being called from a friend class or not (with debug_backtract).
