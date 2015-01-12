@@ -2,6 +2,7 @@
     "name": "bigsinoos/laravel-repository-response",
     "description": "Solution to PHP repository class method responses, Helps to implement true Repository pattern.",
     "license": "GPL",
+    "keywords": ["eloquent", "laravel", "repository-patter", "DDD"],
     "authors": [
         {
             "name": "bigsinoos",
