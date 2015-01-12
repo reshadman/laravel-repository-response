@@ -3,10 +3,10 @@ The trend of Repository pattern made all of us to implement it in our Laravel pr
 
 > We should know that there is no need to implement the full true pattern, patterns have been made to solve us problems, not to be the problem itself. The incomplete pattern that is being trended is good enough for easier testing.
 
-# How it works
+### How it works
 The real pattern interacts with Entities instead of our Eloquent models. so with ```Bigsinoos\RepositoryResponse\BaseEloquentEntity``` this problem is solved. So instead of messaging the ```Eloquent``` models, We must pass our entities. when using Eloquent Repsitories, we can put the model inside our entity which only is accssible by our ```EloquentRepository``` implementation with the help of **Friend / Sibling** classes.
 
-# Friend Classes and debug_back_trace function
+### Friend Classes and debug_back_trace function
 
 A friend classes in the scope of object oriented design, can break their encapsulation layer, for example they can call ```protected``` method of each other. PHP does not support friend classes at all.
 
@@ -20,7 +20,7 @@ By this you can pass an Entity to multiple repositories and their eloquent model
 
 But this also breaks another rule. ** Just like as concrete implementations of reposutory classes we should define different entities for each implmenetation.** (For example ```MongoBlogeEntity```, ```EloquentBlogEntity```, ```DoctorineBlogEntity``` but as long as you make a ```BlogEntityInterface``` contract for them. there isn't any problem, at least it allows to switch between different implmentaions, which was not possible in our previous methodology (returning eloquent models from methods)).
 
-# Usage
+### Usage
 
 A user repository workflow will be as below :
  * UserEntityContract.php
@@ -171,7 +171,7 @@ class ExampleController extends \BaseController {
     }
 }
 ```
-# Exceptions
+### Exceptions
  * ```Bigsinoos\RepositoryResponse\Exceptions\EntityExceptionInterface``` all exceptions are implmenting this contract.
  * ```Bigsinoos\RepositoryResponse\Exceptions\EntityException``` a basic implmentation of the above contract, for unexpected behaviours.
  * ```Bigsinoos\RepositoryResponse\Exceptions\MethodNotAllowedException``` if the eloquent model is tried to being accessed outside a friend class this will be thrown.
