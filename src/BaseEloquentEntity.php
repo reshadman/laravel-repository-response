@@ -14,6 +14,7 @@ abstract class BaseEloquentEntity implements
     ArrayAccess, Arrayable,
     Jsonable, JsonSerializable,
     QueueableEntity, UrlRoutable {
+        
     /**
      * Friend classes of the concrete entity|model
      *
