@@ -37,7 +37,9 @@ interface UserEntityContract {}
 ```
 EloquentUserEntity.php
 ```php
-class EloquentUserEntity extends \Bigsinoos\RepositoryResponse\BaseEloquentEntity implements \UserEntityContract {
+<?php use \Bigsinoos\RepositoryResponse\BaseEloquentEntity;
+
+class EloquentUserEntity extends BaseEloquentEntity implements \UserEntityContract {
         /**
          * Friends of the user repository
          *
@@ -62,8 +64,8 @@ class EloquentUserEntity extends \Bigsinoos\RepositoryResponse\BaseEloquentEntit
     
 }
 ```
-User.php
 
+User.php
 ```php
 <?php
 
@@ -124,7 +126,7 @@ class EloquentUserRepository implements UserRepositoryContract {
         $collection = $this->userEntity
             ->getModel()
             ->newInstance()
-            ->orderBy($sortBy, (bool) $decreasing)
+            ->orderBy($sortBy, ((bool) $decreasing) ? 'desc' ? 'asc')
             ->take((int) $howMuch)->get();
         
         // Don't do this for large data sets.
