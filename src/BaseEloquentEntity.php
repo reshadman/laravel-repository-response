@@ -1,4 +1,4 @@
-<?php  namespace Khenzel\RepositoryResponse;
+<?php  namespace Bigsinoos\RepositoryResponse;
 
 use ArrayAccess;
 use Illuminate\Contracts\Queue\QueueableEntity;
