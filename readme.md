@@ -3,6 +3,13 @@ The trend of Repository pattern made all of us to implement it in our Laravel pr
 
 > We should know that there is no need to implement the full true pattern, patterns have been made to solve us problems, not to be the problem itself. The incomplete pattern that is being trended is good enough for easier testing.
 
+## Installation
+
+```
+composer require bigsinoos/laravel-repository-response
+
+```
+
 ### How it works
 The real pattern interacts with Entities instead of our Eloquent models. so with ```Bigsinoos\RepositoryResponse\BaseEloquentEntity``` this problem is solved. So instead of messaging the ```Eloquent``` models, We must pass our entities. when using Eloquent Repsitories, we can put the model inside our entity which only is accssible by our ```EloquentRepository``` implementation with the help of **Friend / Sibling** classes.
 
